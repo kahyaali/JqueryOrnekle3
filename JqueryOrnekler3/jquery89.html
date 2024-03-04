@@ -1,0 +1,33 @@
+
+ 
+<html>
+    <head>
+        <title>jquery örnekleri</title>
+       
+    </head>
+    <body>
+        Araç Seçin:
+         <select id="ddlAraba" onchange="GetSelectedTextValue(this)">
+            <option value=""></option>
+            <option value="1">Nissan</option>
+            <option value="2">Toyota</option>
+            <option value="3">Honda</option>
+            <option value="4">Audi</option>
+            <option value="5">Mercedes</option>
+        </select>
+        <div id="secim">
+     
+        </div>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                $("#ddlAraba").change(function () {
+                    var selectedText = $(this).find("option:selected").text();
+                    var selectedValue = $(this).val();
+                    $("#secim").html("Seçiminiz : "+selectedText);
+                    alert("Seçilen Metin: " + selectedText + " Seçilen Değer: " + selectedValue);
+                });
+            });
+        </script>
+    </body>
+    </html>

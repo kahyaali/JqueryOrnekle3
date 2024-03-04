@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <title>Jquery Örnekler</title>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+ 
+  <style>
+      #kutu1{
+          height: 250px;
+      }  
+      img{
+          height: 230px;
+      }
+  </style>
+ 
+</head>
+ 
+<body>
+<div id="kutu1">
+    <img src="slidegaleri7.jpg" id="resim">
+</div>
+<div id="kutu2">
+    <input type="checkbox" id="chk" checked> Resmi Göster
+</div>
+ 
+<!--
+   prop : jQuery ile elimizdeki html elemanlarına özellik ekleyip – çıkarma yapmamızı sağlar
+-->
+ 
+ 
+  <script>
+    //Onay kutusu onaylandığında resim görünsün onayı kaldırıldığında resim görünmesin
+    $(document).ready(function() {
+      $("#chk").on("change",function(){
+        if($(this).prop("checked")==true){
+           $("#resim").slideDown(2000);
+        }else{
+           $("#resim").slideUp(2000);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+ 

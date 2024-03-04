@@ -1,0 +1,56 @@
+
+ 
+<html>
+	<head>
+		<title>Marquee</title>
+		
+		<!--meta-->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		
+		<!--fonts-->
+		<link href='https://fonts.googleapis.com/css?family=Telex' rel='stylesheet' type='text/css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <style>
+            .marquee {
+                display: inline-block;
+                white-space: nowrap;
+                /*   animation: scrollLeft 38s linear infinite; */
+                padding-left: 101%;
+                }
+ 
+                .marquee:hover {
+                animation-play-state: paused
+                }
+ 
+                @keyframes scrollLeft {
+                0% {
+                    transform: translateX(0%);
+                }
+                100% {
+                    transform: translateX(-100%)
+                }
+            }
+        </style>
+	</head>
+	<body>
+        <div class="marquee">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+        <script>
+            var marquee = document.querySelector('.marquee');
+ 
+            var marqueeLength = marquee.clientWidth;
+ 
+            var marqueeTravelTime = Math.ceil( marqueeLength / 100 );
+ 
+            marquee.style.animation = `scrollLeft ${marqueeTravelTime}s linear infinite`;
+ 
+            marquee.addEventListener('mouseover', (e)=>{
+            marquee.style['animation-play-state'] = 'paused';
+            })
+ 
+            marquee.addEventListener('mouseout', (e)=>{
+            marquee.style['animation-play-state'] = 'running';
+            })
+        </script>
+	</body>
+</html>
+ 

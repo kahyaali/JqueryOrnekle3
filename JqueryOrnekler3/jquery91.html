@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jquery örnekleri</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+ 
+<body>
+	<p id="p1" style="font-size: 20px">Option özelliğini kullanarak p elementinin rengini değiştireceğiz </p>
+	<select id="secim">
+		<option value="red">Kırmızı</option>
+		<option value="green">Yeşil</option>
+		<option value="blue">Mavi</option>
+		<option value="pink">Pembe</option>
+		<option value="purple">Mor</option>
+	</select>
+	
+	<script>
+		$("#secim").change(function(){
+			var deger=$("#secim").val();
+			$("#p1").css({"color":deger});
+		});
+	</script>
+	
+</body>
+</html>

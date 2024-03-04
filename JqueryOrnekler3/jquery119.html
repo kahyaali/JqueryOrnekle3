@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+    </script>
+	<style>
+        .redDiv {
+            background-color: red;
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+			
+			$('#myDiv').animate({
+                            height: '200px',
+                            width: '200px'
+                        },
+                        5000); <!--5 saniyede 200px olacak şekilde zaman değeri-->
+                });
+    </script>
+</head>
+<body>
+	<h1>Demo: jQuery animate() method</h1>
+
+	<div id="myDiv" class="redDiv">
+	</div>
+</body>
+</html>

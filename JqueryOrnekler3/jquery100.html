@@ -1,0 +1,25 @@
+ 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Jquery Örnekleri - www.tasarimkodlama.com</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"> </script>
+    <script>
+            /**www.tasarimkodlama.com**/
+       $(document).ready(function() {
+            var enfazla = $("#t1").attr("maxlength");
+            $("#t1").on("keyup", function() {
+                var yazi = $("#t1").val();
+                $("#d1").html(enfazla - yazi.length);
+            });
+        });
+ 
+    </script>
+</head>
+ 
+<body>
+     <input type="text" id="t1" maxlength="15"><br>
+    <div id="d1">Buraya Eklenecek</div>
+</body>
+</html>

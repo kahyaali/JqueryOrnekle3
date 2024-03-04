@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content{
+    font-family: 'Roboto', sans-serif;
+    margin: 5% auto;
+    width: 30%;
+}
+.menu{
+    height: auto;
+    border:1px solid #00a157;
+}
+.menu-title h2 {
+    margin: 0;
+    text-align: left;
+    text-transform: uppercase;
+    padding: 8px 10px;
+    background: #00a65a;
+    color: #FFFFFF;
+    cursor:pointer;
+}
+.menu-content{
+    display: none;
+}
+.menu-content p{
+    margin: 0;
+    line-height: 21px;
+    padding: 8px;
+}
+    </style>
+</head>
+<body>
+    <div class="content" id="menu">
+        <div class="menu" >
+            <div class="menu-title ">
+                <h2 class="open">One </h2>
+            </div>
+            <div class="menu-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
+                </p>
+            </div>
+        </div>
+        <div class="menu" >
+            <div class="menu-title ">
+                <h2 class="open">Two </h2>
+            </div>
+            <div class="menu-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
+                </p>
+            </div>
+        </div>
+        <div class="menu" >
+            <div class="menu-title ">
+                <h2 class="open">Three </h2>
+            </div>
+            <div class="menu-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+        //menüdeki başlığımıza tıklandığında işlem yap
+        $("#menu .menu-title").on("click",function() {
+        //Tıklanılan nesnede active classına sahip mi ?
+        if($(this).next().hasClass('active')){
+        //Tıklanılan nesnede active classını sil yukarı kaydır
+        //Burada yaptığımız işlem açık olan menuye tıklandığında
+        //menuyu kapatmak 
+        $(this).next().removeClass('active');
+        $(this).next().stop().slideUp(200);
+        }
+        else {
+        //Tıklanılan nesnede active classına sahip değilse
+        //Hangisinde Active Classı varsa sil ve yukarı kaydır
+        //Tıklanılan nesnede active classı ekle ve aşağı kaydır
+        $(" .menu-content").removeClass('active');
+        $(" .menu-content").slideUp(200);
+        $(this).next().addClass('active');
+        $(this).next().slideDown(200);
+        }
+    })
+})
+    </script>
+</body>
+</html>

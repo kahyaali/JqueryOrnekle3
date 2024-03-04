@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="alan">
+        <img src="slidegaleri1.jpg" />
+        <img src="slidegaleri2.jpg" />
+        <img src="slidegaleri3.jpg" />
+        <img src="slidegaleri4.jpg" />
+        <img src="slidegaleri1.jpg" />
+        <img src="slidegaleri2.jpg" />
+        <img src="slidegaleri3.jpg" />
+        <img src="slidegaleri4.jpg" />
+      </div>
+      <div>
+        <span id="sayfa_no"></span>
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+      <script type="text/javascript">
+        var aktif = 1; var timer;
+        $(document).ready(function(){
+          $("#alan img").hide();
+          $("#alan img:first").show();
+          sayfalar();
+          renk(1);
+          timer = setInterval(degistir,2000);
+        });
+        function degistir()
+        {
+          $("#alan img:nth-child("+aktif+")").hide();
+          aktif = (aktif + 1) % $("#alan img").length;
+          if(aktif == 0) aktif = $("#alan img").length;
+          $("#alan img:nth-child("+aktif+")").fadeIn(1000);
+          renk(aktif);
+        }
+        function tikla(deger)
+        {
+          renk(deger);
+          $("#alan img:nth-child("+aktif+")").hide();
+          aktif = deger;
+          $("#alan img:nth-child("+aktif+")").fadeIn(1000);
+          clearInterval(timer);
+          timer = setInterval(degistir,2000);
+        }
+        function renk(deger)
+        {
+          $("#sayfa_no span").css("background-color","#800")
+          $("#sayfa_no span:nth-child("+deger+")").css("background-color","#c00");
+        }
+        function sayfalar()
+        {
+          var sayfa_no = "";
+          for(var i = 1; i <= $("#alan img").length; i++)
+          {
+          sayfa_no += "<span class='sayfa' onclick=tikla("+i+")>"+i+"</span>"
+          }
+          $("#sayfa_no").html(sayfa_no);
+        }
+      </script>
+</body>
+</html>

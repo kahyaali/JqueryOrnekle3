@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="tree_frame">
+        <div class="tree">
+          <span>Tree 1</span>
+          <div>
+            <a href="#">Deneme</a>
+          </div>
+          <span>Tree 2</span>
+          <div>
+            <div class="tree">
+              <span>Alt Tree 1</span>
+              <div>
+                <a href="#">Deneme</a>
+                <a href="#">Deneme</a>
+              </div>
+              <span>Alt Tree 2</span>
+              <div>
+                <a href="#">Deneme</a>
+                <a href="#">Deneme</a>
+              </div>
+            </div>
+            <a href="#">Deneme</a>
+            <a href="#">Deneme</a>
+          </div>
+        </div>
+      </div>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script type="text/javascript">
+        $(document).ready(function(){
+          $(".tree > div a").css("width","100%");
+          $(".tree > div span").css("width","100%");
+          $(".tree div .tree").css("display","block").css("padding","0").css("width","100%");
+          $("#ac").toggle(function(){
+            $(".tree span").css("background-image","url('acik.png')");
+            $(this).html("Hepsini Kapat");
+            $(".tree div").show();
+            $(".tree div .tree").css("display","block");
+          },function(){
+            $(".tree span").css("background-image","url('kapali.png')");
+            $(this).html("Hepsini Göster");
+            $(".tree div").hide();
+            $(".tree div .tree").css("display","block");
+          });
+          $(".tree span").click(function(){
+            var index = $(".tree > span").index(this);
+            if($(".tree > div:eq("+index+")").is(":hidden"))
+            {
+              ac(index);
+            }
+            else
+            {
+              kapat(index);
+            }
+          });
+        });
+        function kapat(index)
+        {
+          $(".tree > span:eq("+index+")").css("background-image","url('kapali.png')");
+          $(".tree > div:eq("+index+")").hide();
+        }
+        function ac(index)
+        {
+          $(".tree > span:eq("+index+")").css("background-image","url('acik.png')");
+          $(".tree > div:eq("+index+")").show();
+        }
+      </script>
+</body>
+</html>

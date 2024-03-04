@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="eklenti/owlCarousel/assets/owl.carousel.min.css" rel="stylesheet">
+<link href="eklenti/owlCarousel/assets/owl.theme.default.min.css" rel="stylesheet">
+ 
+
+ 
+</head>
+<body>
+     
+<div class="owl-carousel owl-theme">
+ 
+    &nbsp;
+    <div class="item"><img src="galeri/img.png" /></div>
+    <div class="item"><img src="galeri/img.png" /></div>
+    <div class="item"><img src="galeri/img.png" /></div>
+    <div class="item"><img src="galeri/img.png" /></div>
+    <div class="item"><img src="galeri/img.png" /></div>
+    <div class="item"><img src="galeri/img.png" /></div>
+    <div class="item"><img src="galeri/img.png" /></div>
+    <div class="item"><img src="galeri/img.png" /></div>
+    </div>
+
+    <script>
+        
+ 
+$(function(){
+	$(".owl-carousel").owlCarousel();
+});
+ 
+$(function(){
+	$(".owl-carousel").owlCarousel({
+		loop:true
+	});
+});
+ 
+ 
+$(function(){
+	$(".owl-carousel").owlCarousel({
+		loop:true,
+		margin:10
+	});
+});
+
+ 
+$(function(){
+	$(".owl-carousel").owlCarousel({
+		loop:true,
+		margin:10,
+		nav:true,
+		navText:["geri","ileri"]
+	});
+});
+
+ 
+$(function(){
+	$(".owl-carousel").owlCarousel({
+		loop:true,
+		margin:10,
+		nav:true,
+		navText:["geri","ileri"],
+		autoplay:true
+	});
+});
+
+ 
+$(function(){
+	$(".owl-carousel").owlCarousel({
+		loop:true,
+		margin:10,
+		nav:true,
+		navText:["geri","ileri"],
+		autoplay:true,
+		responsive:{
+			0:{
+				items:1
+			},
+			600:{
+				items:2
+			},
+			1000:{
+				items:4
+			}
+		}
+	});
+});
+    </script>
+
+<a href="http://js/jquery-1.11.1.min.js">http://js/jquery-1.11.1.min.js</a>
+<a href="http://eklenti/owlCarousel/owl.carousel.min.js">http://eklenti/owlCarousel/owl.carousel.min.js</a>
+<a href="http://js/script.js">http://js/script.js</a>
+</body>
+</html>

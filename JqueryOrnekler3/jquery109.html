@@ -1,0 +1,37 @@
+ 
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ 
+</head>
+ 
+<body>
+    <input type="text" id="txtUrun">
+    <button id="btnEkle">EKLE</button>
+    <ul id="liste">    
+        
+    </ul>
+    
+    <script>
+        $("#btnEkle").click(function(){
+            var eleman=$("<li>");
+            var but=$("<button>",{class:"b"});
+            but.css({background:"red",textAlign:"center",color:"white"});
+            eleman.append($("#txtUrun").val());
+            but.text("X");
+            eleman.append(but);
+            
+            $("#liste").append(eleman);
+            
+            eleman.on("click",".b",function(){
+               // $(eleman).remove();
+                $(this).parent().remove();
+            })
+        })
+    </script>
+</body>
+</html>
+ 

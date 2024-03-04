@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jquery örnekler</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ 
+ 
+<style> 
+#kutu1, #kutu2 {
+    padding: 5px;
+    text-align: center;
+    background-color: #c4e4f2;
+    border: solid 1px #112233;
+}
+ 
+#kutu2 {
+    padding: 50px;
+}
+</style>
+</head>
+<body>
+ 
+<div id="kutu1">Tıkla</div>
+<div id="kutu2">jquery örnekler</div>
+ 
+<script> 
+$(document).ready(function(){
+    $("#kutu1").click(function(){
+        $("#kutu2").slideUp(1000).slideDown(2000);
+    });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="manset">
+        <div><a href="#"><span class="manset_h">Haber - Yazı Başlığı 1</span> <img src="slidegaleri1.jpg" class="manset_f" /></a></div>
+        <div><a href="#"><span class="manset_h">Haber - Yazı Başlığı 2</span> <img src="slidegaleri2.jpg" class="manset_f" /></a></div>
+        <div><a href="#"><span class="manset_h">Haber - Yazı Başlığı 3</span> <img src="slidegaleri3.jpg" class="manset_f" /></a></div>
+        <div><a href="#"><span class="manset_h">Haber - Yazı Başlığı 4</span> <img src="slidegaleri4.jpg" class="manset_f" /></a></div>
+      </div>
+      <div><span id="sayfa_no"></span></div>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+      <script type="text/javascript">
+        var aktif = 1; var timer; var adet;
+        $(document).ready(function(){
+          $("#manset").show();
+          $("#manset div").hide();
+          $("#manset div:first").show();
+          adet = $("#manset div").length;
+          sayfalar();
+          renk(1);
+          timer = setInterval(degistir,3000);
+        });
+        function degistir()
+        {
+          $("#manset div:nth-child("+aktif+")").slideUp(100);
+          aktif = (aktif + 1) % adet;
+          if(aktif == 0) aktif = adet;
+          $("#manset div:nth-child("+aktif+")").slideDown(200);
+          renk(aktif);
+        }
+        function tikla(deger)
+        {
+          renk(deger);
+          $("#manset div:nth-child("+aktif+")").slideUp(100);
+          aktif = deger;
+          $("#manset div:nth-child("+aktif+")").slideDown(200);
+          clearInterval(timer);
+          timer = setInterval(degistir,3000);
+        }
+        function renk(deger)
+        {
+          $("#sayfa_no span").css("background-color","#ccc")
+          $("#sayfa_no span:nth-child("+deger+")").css("background-color","#eee");
+        }
+        function sayfalar()
+        {
+          var sayfa_no = "";
+          for(var i = 1; i <= adet; i++)
+          {
+            sayfa_no += "<span class='sayfa' onclick=tikla("+i+")>"+i+"</span>"
+          }
+          $("#sayfa_no").html(sayfa_no);
+        }
+      </script>
+</body>
+</html>

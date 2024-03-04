@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="accordion">
+        <span>Accordion 1</span>
+        <div>
+          <a href="#">Deneme</a>
+          <a href="#">Deneme</a>
+        </div>
+        <span>Accordion 2</span>
+        <div>
+          <a href="#">Deneme</a>
+          <a href="#">Deneme</a>
+          <a href="#">Deneme</a>
+        </div>
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script type="text/javascript">
+        var aktif = -1;
+        $(document).ready(function(){
+          $("#accordion span").click(function(){
+            var index = $("#accordion span").index(this);
+            if(index != aktif)
+            {
+              $("#accordion div:eq("+aktif+")").slideUp(300);
+              $("#accordion div:eq("+index+")").slideDown(300);
+              aktif = index;
+            }
+            else
+            {
+              $("#accordion div:eq("+index+")").slideUp(300);aktif=-1;
+            }
+          });
+        });
+      </script>
+</body>
+</html>

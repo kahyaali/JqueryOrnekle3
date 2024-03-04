@@ -1,0 +1,39 @@
+ 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jquery örnekler</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+ 
+<button id="btn1">Gizle</button>
+<button id="btn2">Göster</button>
+    
+<p>JQuery www.yazilimkodlama.com JQuery www.yazilimkodlama.com 
+JQuery www.yazilimkodlama.com JQuery www.yazilimkodlama.com 
+JQuery www.yazilimkodlama.com JQuery www.yazilimkodlama.com 
+JQuery www.yazilimkodlama.com JQuery www.yazilimkodlama.com 
+JQuery www.yazilimkodlama.com JQuery www.yazilimkodlama.com 
+JQuery www.yazilimkodlama.com JQuery www.yazilimkodlama.com 
+JQuery www.yazilimkodlama.com JQuery www.yazilimkodlama.com 
+JQuery www.yazilimkodlama.com JQuery www.yazilimkodlama.com 
+JQuery www.yazilimkodlama.com JQuery www.yazilimkodlama.com </p>
+ 
+<script>
+ 
+    $(document).ready(function(){
+       
+        $("#btn1").click(function(){
+           $("p").hide(); 
+        });
+        
+        $("#btn2").click(function(){
+           $("p").show(); 
+        });
+        
+    });
+    
+</script>
+</body>
+</html>

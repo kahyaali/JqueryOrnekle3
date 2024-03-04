@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Jquery Örnekleri - www.tasarimkodlama.com</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"> </script>
+    <script>
+            /**www.tasarimkodlama.com**/
+        $(document).ready(function() {
+            var sayac = 1;
+            $("#b1").click(function() {
+                var tkutu = $("<input>", {
+                    type: "text",
+                    name: "t" + sayac,
+                    id: "t" + sayac,
+                    placeHolder: "Adınızı Giriniz"
+                });
+                $("#d1").append("<br>").append(tkutu);
+                sayac++;
+            });
+        });
+    
+ 
+    </script>
+ 
+</head>
+ 
+<body>
+ <input type="button" id="b1" value="Ekle"><br>
+ <div id="d1"></div>
+</body>
+</html>

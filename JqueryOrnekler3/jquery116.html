@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="accordion">
+        <span>A1</span>
+        <div>İçerik - 1</div>
+        <span>A2</span>
+        <div>İçerik - 2</div>
+        <span>A3</span>
+        <div>İçerik - 3</div>
+        <span>A4</span>
+        <div>İçerik - 4</div>
+        <span>A5</span>
+        <div>İçerik - 5</div>
+      </div>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script type="text/javascript">
+        var aktif = 1;
+        $(document).ready(function(){
+          var son = $("#accordion div").length;
+          aktif = (son - 1); //açılışta aktif olacak kutu.
+          $("#accordion div:eq("+aktif+")").css("width","0px").animate({width:"306px"}, 300);
+          $("#accordion span").click(function(){
+            var index = $("#accordion span").index(this);
+            if(index != aktif)
+            {
+              $("#accordion div:eq("+aktif+")").hide();
+              $("#accordion div:eq("+index+")").css("width","0px").animate({width:"306px"}, 300);
+              aktif = index;
+            }
+          });
+        });
+      </script>
+</body>
+</html>
